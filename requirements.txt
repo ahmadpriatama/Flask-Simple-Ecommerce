@@ -8,11 +8,14 @@ Flask-Login==0.2.11
 Flask-SQLAlchemy==2.0
 Flask-Script==2.0.5
 Flask-WTF==0.11
+Flask-User==0.6.8
+Flask-Bootstrap==3.3.6.0
 
 # Other
 itsdangerous==0.24
 cssmin==0.2.0
 jsmin==2.1.1
+WTForms-Alchemy==0.16.1
 
 # Testing
 pytest==2.7.0

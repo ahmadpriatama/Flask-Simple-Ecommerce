@@ -1,0 +1,9 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{{ form.csrf_token }}
+{{ wtf.form_errors(form) }}
+{{ wtf.form_field(form.title) }}
+{{ wtf.form_field(form.parent_id) }}
+
+<input type="hidden" value="test" />
+<input type="submit" value="Submit" class="btn btn-primary" />

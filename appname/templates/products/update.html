@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Edit {{ form.name.data }}</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% include 'products/_form.html' %}
+            {% if model.photo %}
+                <img src="{{ url_for('uploaded_file', filename=model.photo) }}" style="max-width: 300px" />
+            {% endif %}
+            <br />
+            <br />
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+    {{ super() }}
+    <script>
+        $('.selectize').selectize();
+    </script>
+{% endblock %}

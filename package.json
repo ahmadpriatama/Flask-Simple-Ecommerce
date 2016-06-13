@@ -1,0 +1,24 @@
+{
+  "name": "Flask-CRUD",
+  "version": "0.0.1",
+  "description": "[![Build Status](https://travis-ci.org/JackStouffer/Flask-Foundation.png)](https://travis-ci.org/JackStouffer/Flask-Foundation)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmadpriatama/Flask-Foundation"
+  },
+  "author": "Ahmad Priatama",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/ahmadpriatama/Flask-Foundation/issues"
+  },
+  "dependencies": {
+    "selectize": "^0.12.1"
+  }
+}

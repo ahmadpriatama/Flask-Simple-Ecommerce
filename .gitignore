@@ -40,3 +40,7 @@ env*
 *.sublime-*
 
 appname/static/public/*
+
+.idea
+node_modules
+uploads/*

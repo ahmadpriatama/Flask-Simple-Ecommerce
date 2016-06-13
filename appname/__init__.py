@@ -6,6 +6,12 @@ from webassets.loaders import PythonLoader as PythonAssetsLoader
 from appname import assets
 from appname.models import db
 from appname.controllers.main import main
+from appname.controllers.categories import categories
+from appname.controllers.products import products
+from appname.controllers.catalogs import catalogs
+from flask_bootstrap import Bootstrap
+from flask import send_from_directory
+import os
 
 from appname.extensions import (
     cache,
@@ -27,6 +33,12 @@ def create_app(object_name):
 
     app = Flask(__name__)
 
+    @app.route('/uploads/<filename>')
+    def uploaded_file(filename):
+        return send_from_directory('/home/ahmad/workspace/python/Flask-CRUD/uploads/', filename)
+
+    Bootstrap(app)
+
     app.config.from_object(object_name)
 
     # initialize the cache
@@ -37,16 +49,25 @@ def create_app(object_name):
 
     # initialize SQLAlchemy
     db.init_app(app)
+    db.app = app
 
     login_manager.init_app(app)
 
     # Import and register the different asset bundles
     assets_env.init_app(app)
+    with app.app_context():
+        assets_env.load_path = [
+            os.path.join(os.path.join(os.path.dirname(__file__), os.pardir), 'node_modules'),
+            os.path.join(os.path.dirname(__file__), 'static'),
+        ]
     assets_loader = PythonAssetsLoader(assets)
     for name, bundle in assets_loader.load_bundles().items():
         assets_env.register(name, bundle)
 
     # register our blueprints
     app.register_blueprint(main)
+    app.register_blueprint(categories)
+    app.register_blueprint(products)
+    app.register_blueprint(catalogs)
 
     return app

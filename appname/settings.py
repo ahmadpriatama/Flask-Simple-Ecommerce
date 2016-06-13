@@ -18,7 +18,7 @@ class DevConfig(Config):
     DEBUG = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False
 
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///../database.db'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:100%Secured@localhost/python'
 
     CACHE_TYPE = 'null'
     ASSETS_DEBUG = True

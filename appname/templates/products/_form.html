@@ -1,0 +1,8 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{{ form.csrf_token }}
+{{ wtf.form_errors(form) }}
+{{ wtf.form_field(form.name) }}
+{{ wtf.form_field(form.model) }}
+{{ wtf.form_field(form.categories, class='form-control selectize') }}
+{{ wtf.form_field(form.photo) }}

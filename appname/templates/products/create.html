@@ -1,0 +1,22 @@
+{%  extends "base.html" %}
+
+{% block body %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>New Product</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% include 'products/_form.html' %}
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+    {{ super() }}
+    <script>
+        $('.selectize').selectize();
+    </script>
+{% endblock %}
