@@ -68,7 +68,7 @@ tags = db.Table('category_product',
 class Category(db.Model, Model):
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String(length=100))
-    parent_id = db.Column(db.String(length=3))
+    parent_id = db.Column(db.String(length=6))
     created_at = db.Column(db.DateTime())
     update_at = db.Column(db.DateTime())
 

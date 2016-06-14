@@ -10,12 +10,16 @@ Flask-Script==2.0.5
 Flask-WTF==0.11
 Flask-User==0.6.8
 Flask-Bootstrap==3.3.6.0
+Flask-Table==0.2.10
 
 # Other
+gunicorn==0.14.2
 itsdangerous==0.24
 cssmin==0.2.0
 jsmin==2.1.1
 WTForms-Alchemy==0.16.1
+MySQL-python==1.2.5
+cffi==1.6.0
 
 # Testing
 pytest==2.7.0

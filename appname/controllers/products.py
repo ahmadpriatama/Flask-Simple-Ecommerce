@@ -41,13 +41,7 @@ def index():
 
         def td_contents(self, item, attr_list):
             return
-            )
 
-                @foreach ($product->categories as $category)
-                  <span class="label label-primary">
-                  <i class="fa fa-btn fa-tags"></i>
-                  {{ $category->title }}</span>
-                @endforeach
 
     class ItemTable(Table):
         name = Col('Name')
