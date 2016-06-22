@@ -37,15 +37,21 @@ def index():
 
     class TagCol(Col):
         def __init__(self):
-            super(ActionCol, self).__init__("Categories")
+            super(TagCol, self).__init__("Categories")
 
         def td_contents(self, item, attr_list):
-            return
+            ret = ''
+            for i in item.categories:
+                ret += '<span class="label label-primary">' \
+                    '<i class="fa fa-btn fa-tags"></i>' \
+                    '{label}</span> '.format(label=i.title)
+            return ret
 
 
     class ItemTable(Table):
         name = Col('Name')
         model = Col('Model')
+        tag = TagCol()
         action = ActionCol()
 
     products = Product.query.filter_by(isRemoved=0).all()

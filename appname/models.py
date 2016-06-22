@@ -97,3 +97,7 @@ class Product(db.Model, Model):
     created_at = db.Column(db.DateTime())
     update_at = db.Column(db.DateTime())
     categories = db.relationship('Category', secondary=tags, backref=db.backref('product'))
+
+    def getUrl(self):
+        return '/uploads/' + self.photo if self.photo else ''
+

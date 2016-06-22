@@ -35,29 +35,29 @@
       <div class="col-md-9">
         <div class="row">
           <div class="col-md-12"><h1>Category : {{ category.title if category else 'All' }}</h1></div>
-{#          @forelse ($products as $product)#}
-{#            <div class="col-md-6">#}
-{#              <h3>{{ $product->name }}</h3>#}
-{#              <div class="thumbnail">#}
-{#                <img src="{{ $product->photo_path }}" class="img-rounded">#}
-{#                  <p>Model: {{ $product->model }}</p>#}
-{#                  <p>Category:#}
-{#                    @foreach ($product->categories as $category)#}
-{#                      <a href="{{ url('/catalogs?cat=' . $category->id)}}">#}
-{#                        <span class="label label-primary">#}
-{#                        <i class="fa fa-btn fa-tags"></i>#}
-{#                        {{ $category->title }}</span>#}
-{#                      </a>#}
-{#                    @endforeach#}
-{#                  </p>#}
-{#              </div>#}
-{#            </div>#}
+            {% for item in products %}
+            <div class="col-md-6">
+              <h3>{{ item.name }}</h3>
+              <div class="thumbnail">
+                <img src="{{ item.getUrl() }}" class="img-rounded">
+                  <p>Model: {{ item.model }}</p>
+                  <p>Category:
+                    {% for category in item.categories %}
+                      <a href="{{ url_for('catalogs.index', id=category.id)}}">
+                        <span class="label label-primary">
+                        <i class="fa fa-btn fa-tags"></i>
+                        {{ category.title }}</span>
+                      </a>
+                    {% endfor %}
+                  </p>
+              </div>
+            </div>
 {#          @empty#}
 {#            <div class="col-md-12 text-center">#}
 {#              <h1>:(</h1>#}
 {#              <p>We can't find what you're looking for.</p>#}
 {#            </div>#}
-{#          @endforelse#}
+            {% endfor %}
 {##}
 {##}
 {#          <div class="pull-right">{!! $products->links() !!}</div>#}
